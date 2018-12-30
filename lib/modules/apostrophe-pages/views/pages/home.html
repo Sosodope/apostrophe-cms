@@ -12,6 +12,31 @@
         <a class="login-link" href="/login">Login</a>
       {% endif %}
     </h3>
+    <div class="main-content">
+      {{ apos.singleton(data.page, 'textBlock', 'apostrophe-rich-text', {
+        toolbar: [ 'Bold', 'Italic' ]
+      }) }}
+    </div>
+    <div class="sub-content">
+      {{ apos.singleton(data.page, 'imageArea', 'apostrophe-images', {
+        size: 'one-half'
+      }) }}
+    </div>
     <p>This is a very bare bones Apostrophe project. Now, get to work and make a real website!</p>
+    {{ apos.area(data.page, 'body', {
+      widgets: {
+        'apostrophe-images': {
+          size: 'full'
+        },
+        'apostrophe-rich-text': {
+          toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+          styles: [
+            { name: 'Heading', element: 'h3' },
+            { name: 'Subheading', element: 'h4' },
+            { name: 'Paragraph', element: 'p' }
+          ]
+        }
+      }
+    }) }}
   </div>
 {% endblock %}
